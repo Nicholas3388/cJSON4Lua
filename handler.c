@@ -345,9 +345,6 @@ int json_encode(lua_State *l)
 
     char *json = cJSON_PrintUnformatted(pRes);
     lua_pushlstring(l, json, my_strlen(json));
-    //DBG_PRINT("%s\n", cJSON_PrintUnformatted(pRes));
-    //DBG_PRINT("->%s\n", cJSON_PrintUnformatted(pJsonArray));
-    //DBG_PRINT("->%s\n", cJSON_PrintUnformatted(pJsonObj));
 
     list_destroy(&json_obj_list);
 
