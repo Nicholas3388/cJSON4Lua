@@ -111,7 +111,7 @@ static BOOL is_cjson_empty(cJSON *pRoot)
 /*
  * Parse data
  */
-static int get_value(lua_State *l, char *key, cJSON *pJsonObj, cJSON *pJsonArray, int key_is_number, int *add_to_arry)
+static int get_value(lua_State *l, const char *key, cJSON *pJsonObj, cJSON *pJsonArray, int key_is_number, int *add_to_arry)
 {
     switch (lua_type(l, -1)) {
     case LUA_TSTRING:
@@ -318,7 +318,7 @@ int json_decode(lua_State *l)
         return 0;
     }
 
-    char *pJson = lua_tostring(l, -1);
+    const char *pJson = lua_tostring(l, -1);
     cJSON *pRoot = cJSON_Parse(pJson);
     json_parser(l, pRoot);
 
