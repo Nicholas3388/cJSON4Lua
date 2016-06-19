@@ -42,6 +42,7 @@ int main()
 
     int err = luaL_loadbuffer(L, pLua, strlen(pLua), "line") || lua_pcall(L, 0, 0, 0);
     if (err) { lua_pop(L, 1); }
+    free(pLua);
 
     lua_close(L);
 
